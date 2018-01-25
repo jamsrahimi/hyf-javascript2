@@ -64,9 +64,13 @@ let tasks = monday.concat(tuesday);
 //2. Write a program that does the following below.Use map and filter.You will also need a forEach
 //or a for loop for the 'summing up' part.
 // Collect two days' worth of tasks.
-tuesday.forEach(function (el, idx, arr) {
+tasks.forEach(function (el, idx, arr) {
     console.log(el);
-})
+});
+const dur = tasks.name.map(function (person) {
+    console.log(person.name);
+
+});
 // Convert the task durations to hours, instead of minutes.
 // Filter out everything that took two hours or more(remove from the collection)
 // Multiply the each duration by a per - hour rate for billing(you can decide yourself what
