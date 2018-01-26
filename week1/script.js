@@ -107,16 +107,16 @@ const myBooksObj = [
 ];
 
 // const bookImages = {
-//     foragers: "images/sapiens_a_brief_history_of_humankind.png",
-//     future: "images/homo_deus_a_brief_history_of_tomorrow.png",
-//     survivalOftheFittest: "images/the_selfish_gene.png",
-//     mindCosmos: "images/the_future_of_mind.png",
-//     bigBang: "images/undeniable_evolution_science_of_creation.png",
-//     fundamentalism: "images/why_the_west_is_best.png.png",
-//     antWallClimbing: "images/the_story_of_human_body.png",
-//     spaceAndtime: "images/a_brief_history_of_time.png",
-//     relativity: "images/the_physicist_and_the_philosopher.png",
-//     smallPox: "images/guns_germs_and_steel.png"
+    // foragers: "images/sapiens_a_brief_history_of_humankind.png",
+    // future: "images/homo_deus_a_brief_history_of_tomorrow.png",
+    // survivalOftheFittest: "images/the_selfish_gene.png",
+    // mindCosmos: "images/the_future_of_mind.png",
+    // bigBang: "images/undeniable_evolution_science_of_creation.png",
+    // fundamentalism: "images/why_the_west_is_best.png.png",
+    // antWallClimbing: "images/the_story_of_human_body.png",
+    // spaceAndtime: "images/a_brief_history_of_time.png",
+    // relativity: "images/the_physicist_and_the_philosopher.png",
+    // smallPox: "images/guns_germs_and_steel.png"
 // }
 //5.Now change the function you used to display the book ID's in a list to take the actual information about the book 
 //from the object and display that. Make sure you choose the right html elements for each piece of info, for instance, 
