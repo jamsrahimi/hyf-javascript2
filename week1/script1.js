@@ -16,7 +16,7 @@
         the_selfish_gene: "images/the_selfish_gene.png",
         the_future_of_mind: "images/the_future_of_mind.png",
         undeniable_evolution_science_of_creation: "images/undeniable_evolution_science_of_creation.png",
-        why_the_west_is_best: "images/why_the_west_is_best.png.png",
+        why_the_west_is_best: "images/why_the_west_is_best.png",
         the_story_of_human_body: "images/the_story_of_human_body.png",
         a_brief_history_of_time: "images/a_brief_history_of_time.png",
         the_physicist_and_the_philosopher: "images/the_physicist_and_the_philosopher.png",

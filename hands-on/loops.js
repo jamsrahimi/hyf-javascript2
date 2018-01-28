@@ -124,13 +124,13 @@
         // Add your code here to : use a switch statement
         switch (command) {
             case 'TURN-LEFT':
-                 turn('left');
+                turn('left');
                 break;
             case 'TURN-RIGHT':
-                 turn('right');
+                turn('right');
                 break;
             case 'MOVE':
-                 move();
+                move();
                 break;
             default:
                 console.log("Something is wrong");
@@ -139,108 +139,122 @@
     // Call the 'turn()' or 'move()' function depending on the command
 
     execute('TURN-LEF');
-/**
- * Execute a sequence of robot commands
- * @param {string[]} commands - The robot commands to execute
- */
-function executeSequence(commands) {
-    console.log('\n--- starting execution ---');
-    // Add your code here to: use a for loop or a forEach method
-    for (let i = 0; i < commands.length; i++){
-        execute(commands[i])
+    /**
+     * Execute a sequence of robot commands
+     * @param {string[]} commands - The robot commands to execute
+     */
+    function executeSequence(commands) {
+        console.log('\n--- starting execution ---');
+        // Add your code here to: use a for loop or a forEach method
+        for (let i = 0; i < commands.length; i++) {
+            execute(commands[i]);
+        }
+        // console.log(commands);    // Call the 'execute()' function for each command
     }
-    // console.log(commands);    // Call the 'execute()' function for each command
-}
-/**
- * Convert English commands
- * @param {*} commands - Command data to convert: use enlishCommanfs
- */
-function convertEnglish(commands) {
-    // Add your code here
-    return commands.map((element) => {
-        return element.toUpperCase();
-    })
-}
-
-/**
- * Convert frenchCommands array
- * @param {*} commands - Command data to convert: use frenchCommands
- */
-function convertFrench() {
-    console.log('convertFrench');
-    // French -> English
-    // marche -> move
-    // à droit -> turn-right
-    // à gauche -> turn-left
-    // Add your code here
-    // Use a switch statement to do the translations
-}
-
-/**
- * Convert chattyFrenchCommands array
- * @param {*} commands - Command data to convert: use chattyFrenchCommands
- */
-function convertChattyFrench(commands) {
-    // French -> English
-    // marche -> move
-    // à droit -> turn-right
-    // à gauche -> turn-left
-    // s'il vous plaît -> please
-    // puis -> then
-    // Add your code here
-    // Define an object with the translation mappings
-    // Use a loop or '.map()' and '.filter()' methods to do
-    // the conversions
-}
-
-/**
- * Convert actionCommands array
- * @param {*} commands - Command data to convert: use actionCommands
- */
-function convertActions(commands) {
-    // Add your code here
-}
-
-/**
- * Convert shorthandCommands string
- * @param {*} commands - Command data to convert: use shorthandCommands
- */
-function convertShorthand(commands) {
-    // Add your code here
-}
-
-/**
- * Convert verbalCommands array
- * @param {*} commands - Command data to convert: use verbalCommands
- */
-function convertVerbal(commands) {
-    // Add your code here
-}
-
-const sampleCommands = [
-    'MOVE',
-    'TURN-RIGHT',
-    'MOVE',
-    'MOVE',
-    'MOVE',
-    'TURN-LEFT',
-    'MOVE',
-    'MOVE'
-];
-
-/**
- * Test your converters here
- */
-const actual = sampleCommands;
-
-console.log('\n--- testing ---');
-if (isEqual(actual, expected)) {
-    console.log('>>> test was successful');
-    executeSequence(actual);
-} else {
-    console.error('>>> test failed');
+    /**
+     * Convert English commands
+     * @param {*} commands - Command data to convert: use enlishCommanfs
+     */
+    function convertEnglish(commands) {
+        // Add your code here
+        return commands.map((element) => {
+            return element.toUpperCase();
+        });
     }
 
-    executeSequence(sampleCommands);    
+    /**
+     * Convert frenchCommands array
+     * @param {*} commands - Command data to convert: use frenchCommands
+     */
+    function convertFrench() {
+        console.log('convertFrench');
+        // French -> English
+        // marche -> move
+        // à droit -> turn-right
+        // à gauche -> turn-left
+        // Add your code here
+        // Use a switch statement to do the translations
+    }
+
+    /**
+     * Convert chattyFrenchCommands array
+     * @param {*} commands - Command data to convert: use chattyFrenchCommands
+     */
+    function convertChattyFrench(commands) {
+        // French -> English
+        // marche -> move
+        // à droit -> turn-right
+        // à gauche -> turn-left
+        // s'il vous plaît -> please
+        // puis -> then
+        // Add your code here
+        // Define an object with the translation mappings
+        // Use a loop or '.map()' and '.filter()' methods to do
+        // the conversions
+    }
+
+    /**
+     * Convert actionCommands array
+     * @param {*} commands - Command data to convert: use actionCommands
+     */
+    function convertActions(commands) {
+        // Add your code here
+        let convertedArr = [];
+        for (let j = 0; j < actionCommands.length; j++) {
+            if (actionCommands[j].times > 1) {
+                let temp = actionCommands[j].times;
+                for (let i = temp; i <temp; i++) {
+                    console.log('1', actionCommands[j].type);
+                    convertedArr.push(actionCommands[j].type);
+                }
+            } else {
+                console.log('2', actionCommands[j].type);
+                convertedArr.push(actionCommands[j].type);
+            }
+        }
+        return convertedArr;
+    }
+    convertActions(actionCommands);
+    /**
+     * Convert shorthandCommands string
+     * @param {*} commands - Command data to convert: use shorthandCommands
+     */
+    function convertShorthand(commands) {
+        // Add your code here
+    }
+
+    /**
+     * Convert verbalCommands array
+     * @param {*} commands - Command data to convert: use verbalCommands
+     */
+    function convertVerbal(commands) {
+        // Add your code here
+    }
+
+    const sampleCommands = [
+        'MOVE',
+        'TURN-RIGHT',
+        'MOVE',
+        'MOVE',
+        'MOVE',
+        'TURN-LEFT',
+        'MOVE',
+        'MOVE'
+    ];
+
+    /**
+     * Test your converters here
+     */
+    const actual = sampleCommands;
+
+    console.log('\n--- testing ---');
+    if (isEqual(actual, expected)) {
+        console.log('>>> test was successful');
+        executeSequence(actual);
+    } else {
+        console.error('>>> test failed');
+    }
+
+    executeSequence(sampleCommands);
     convertEnglish(englishCommands);
 }
