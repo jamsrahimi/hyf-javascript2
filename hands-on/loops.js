@@ -138,7 +138,6 @@
     }
     // Call the 'turn()' or 'move()' function depending on the command
 
-    execute('TURN-LEF');
     /**
      * Execute a sequence of robot commands
      * @param {string[]} commands - The robot commands to execute
@@ -166,8 +165,23 @@
      * Convert frenchCommands array
      * @param {*} commands - Command data to convert: use frenchCommands
      */
-    function convertFrench() {
+    function convertFrench(commands) {
         console.log('convertFrench');
+        return commands.map(command => {
+            //const convertedCommands= commands.map(command => {
+            switch (command) {
+                case 'marche':
+                    return 'MOVE';
+                case 'à droit':
+                    return 'TURN-RIGHT';
+                case 'à gauche':
+                    return 'TURN-LEFT';
+            }
+
+        });
+        //return convertedCommands;
+
+
         // French -> English
         // marche -> move
         // à droit -> turn-right
@@ -203,7 +217,7 @@
         for (let j = 0; j < actionCommands.length; j++) {
             if (actionCommands[j].times > 1) {
                 let temp = actionCommands[j].times;
-                for (let i = temp; i <temp; i++) {
+                for (let i = temp; i < temp; i++) {
                     console.log('1', actionCommands[j].type);
                     convertedArr.push(actionCommands[j].type);
                 }
@@ -214,7 +228,7 @@
         }
         return convertedArr;
     }
-    convertActions(actionCommands);
+
     /**
      * Convert shorthandCommands string
      * @param {*} commands - Command data to convert: use shorthandCommands
@@ -245,7 +259,7 @@
     /**
      * Test your converters here
      */
-    const actual = sampleCommands;
+    const actual = convertFrench(frenchCommands);
 
     console.log('\n--- testing ---');
     if (isEqual(actual, expected)) {
@@ -254,7 +268,9 @@
     } else {
         console.error('>>> test failed');
     }
+    //execute('TURN-LEF');
 
-    executeSequence(sampleCommands);
-    convertEnglish(englishCommands);
+    //convertActions(actionCommands);
+    //executeSequence(sampleCommands);
+    //convertEnglish(englishCommands);
 }
