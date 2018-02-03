@@ -130,11 +130,62 @@ function multiplyAll(arr) {
     return product;
 }
 // Modify values below to test your code
-multiplyAll([[1, 2], [3, 4], [5, 6, 7]]);
+console.log(multiplyAll([[1, 2], [3, 4], [5, 6, 7]]));
 console.log("End of Q5---------------------------0");
 
 //6. We did some work with arrays - var arr = [1,2,3] We can also nest arrays inside arrays like this var arr2d = [[1,2], 
 //[3,4], [5,6]] (for math people you can think of this as a matrix)
 //How would you print all the items of an array with 3 dimensions? How about with K dimensions?
 //What if you didn't know how deep the array was nested? (You don't have to write code for this but think about it)
+const arr3d = [[[1, 2], [3, 4]], [[5, 6], [7, 8]], [[9, 10], [11, 12]]];
 
+// This function calls itself recursively
+function printAll(arg) {
+    if (Array.isArray(arg)) {
+        arg.forEach(elem => printAll(elem));
+    } else {
+        console.log(arg);
+    }
+}
+
+printAll(arr3d);
+//http://devdocs.io/javascript/statements/for...of
+let iterable = new Map([[[1, 2], [3, 4]], [[5, 6], [7, 8]], [[9, 10], [11, 12]]]);
+
+for (let entry of iterable) {
+    console.log(entry);
+}
+// ['a', 1]
+// ['b', 2]
+// ['c', 3]
+
+for (let [key, value] of iterable) {
+    console.log(value);
+}
+// 1
+// 2
+// 3
+console.log("End of Q6---------------------------0");
+console.log("Q7---------------------------------->");
+
+//7. Here are two functions that look like they do the something similar but they print different results. 
+//Please explain what's going on here.
+
+let x = 9;
+function f1(val) {
+    val++;
+    //   return val;
+}
+f1(x);
+console.log(x.value);
+console.log("When passing in a primitive type variable like a string or a number, the value is passed in by value. \nThis means that any changes to that variable while in the function are completely separate from anything that \nhappens outside the function.")
+//https://snook.ca/archives/javascript/javascript_pass
+let y = { x: 9 };
+function f2(val) {
+    val.x = val.x + 1;
+    return val;
+}
+f2(y);
+console.log(y);
+
+//If you are confused please run the code and then consult the Google for "javaScript pass by value pass by reference"
