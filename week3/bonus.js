@@ -11,19 +11,18 @@ console.log(addSix(21)); // returns 27
 //Bonus: Write a function takes this array['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c'] and returns an array which only 
 //has unique values in it(so it removes the duplicate ones).Make it a 'smart' algorithm that could do it for 
 //every array(only strings / number).Try to make it as fast as possible!
-function find_duplicate_in_array(arra1) {
-    let i,
-        len = arra1.length,
-        result = [],
-        obj = {};
-    for (i = 0; i < len; i++) {
-        obj[arra1[i]] = 0;
+function findDuplicateInArray(array) {
+    const obj = {};
+    for (let i = 0; i < array.length; i++) {
+        obj[array[i]] = 0;
     }
-    for (i in obj) {
-        result.push(i);
+    const result = [];
+    for (const key in obj) {
+        result.push(key);
     }
     return result;
 }
-var arr = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c'];
-console.log(find_duplicate_in_array(arr));
+const arr = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c',1,3,8,2,4];
+console.log(findDuplicateInArray(arr));
 //ref: https://www.w3resource.com/javascript-exercises/javascript-array-exercise-20.php
+//final version is Jim's correction!
