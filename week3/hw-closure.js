@@ -3,13 +3,10 @@
 //Your task is to write a function that takes another function as an argument and runs it.
 //http://conceptf1.blogspot.nl/2013/11/javascript-closures.html
 function foo(func) {
-    let doing = "What to do here?";
-    let done = function () {
-        console.log(doing);
-        func();
-        console.log("I am calling another function from inside this function. Also practicing Clusure!");
-    };
-    done();
+    console.log("What to do here?");
+    func();
+    console.log("I am calling another function from inside this function.");
+
 }
 
 function bar() {
@@ -42,22 +39,31 @@ function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
     }
     console.log(numbers);
     numbers.forEach(function (num) {
-        if (num % 3 !== 0 && num % 5 !== 0) {
-            console.log(num + " is either Prime or divisible by 2.");
-        }
+        // if (num % 3 !== 0 && num % 5 !== 0) {
+        //     console.log(num + " is either Prime or divisible by 2.");
+        // }//actually this was not asked in hw, removing it!
         if (num % 3 === 0) {
             threeCallback(num);
         }
         if (num % 5 === 0) {
             fiveCallback(num);
         }
-        if (num % 3 === 0 && num % 5 === 0) {
-            console.log(num + " is divisible by 3 and 5.");
-        }
+        // if (num % 3 === 0 && num % 5 === 0) {
+        //     console.log(num + " is divisible by 3 and 5.");
+        // }
     });
 }
 
-threeFive(9, 20, sayThree, sayFive);
+threeFive(10, 15, sayThree, sayFive);
+// // uses a closure //A smarter solution, copied from Jim's solution
+// function sayDivisibleBy(divisor) {
+//     return function (num) {
+//         console.log(`${num} is divisible by ${divisor}`);
+//     }
+// }
+
+// threeFive(10, 15, sayDivisibleBy(3), sayDivisibleBy(5));
+
 console.log("End of Q2---------------------------0");
 //3. Please solve this problem using: https://www.freecodecamp.com/challenges/repeat-a-string-repeat-a-string
 //3.1 A for loop.
@@ -139,32 +145,19 @@ console.log("End of Q5---------------------------0");
 //What if you didn't know how deep the array was nested? (You don't have to write code for this but think about it)
 const arr3d = [[[1, 2], [3, 4]], [[5, 6], [7, 8]], [[9, 10], [11, 12]]];
 
-// This function calls itself recursively
-function printAll(arg) {
-    if (Array.isArray(arg)) {
-        arg.forEach(elem => printAll(elem));
-    } else {
-        console.log(arg);
+//found this: https://stackoverflow.com/questions/7106410/looping-through-arrays-of-arrays
+function printArray(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] instanceof Array) {//http://devdocs.io/javascript/operators/instanceof
+            //using Array here, looks quite smart to check every instance of the occurrence where it is an Array!
+            printArray(arr[i]);
+        } else {
+            console.log(arr[i]);
+        }
     }
 }
 
-printAll(arr3d);
-//http://devdocs.io/javascript/statements/for...of
-let iterable = new Map([[[1, 2], [3, 4]], [[5, 6], [7, 8]], [[9, 10], [11, 12]]]);
-
-for (let entry of iterable) {
-    console.log(entry);
-}
-// ['a', 1]
-// ['b', 2]
-// ['c', 3]
-
-for (let [key, value] of iterable) {
-    console.log(value);
-}
-// 1
-// 2
-// 3
+printArray(arr3d);
 console.log("End of Q6---------------------------0");
 console.log("Q7---------------------------------->");
 
@@ -187,5 +180,5 @@ function f2(val) {
 }
 f2(y);
 console.log(y);
-
+console.log("According to me, here we are accessing the object and changing the value of the object.\nIt seems Javascript passes only by value and modifies only the referenced object's properties!");
 //If you are confused please run the code and then consult the Google for "javaScript pass by value pass by reference"
